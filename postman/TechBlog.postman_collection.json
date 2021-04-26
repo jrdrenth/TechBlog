@@ -1,0 +1,559 @@
+{
+	"info": {
+		"_postman_id": "a4f2cb2a-b08f-4a8a-92cc-ef0c2687223a",
+		"name": "TechBlog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "CREATE Comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"post_id\": 6,\r\n    \"content\": \"This is comment!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/comments/",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ All Comments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/comments/",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ Comment by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/comments/2",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"comments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ Comments by UserId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/comments/byuserid/1",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"comments",
+								"byuserid",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Comment by Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"This is an UPDATED comment!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/comments/1",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Comment by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/comments/2",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"comments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "CREATE Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"My NEW Blog Post\",\r\n    \"content\": \"This is a NEWER post on my blog!!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/posts/",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ All Posts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/posts/",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ Post by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/posts/6",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"posts",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ Posts by UserId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/posts/byuserid/1",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"posts",
+								"byuserid",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Post by Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"My Blog Post\",\r\n    \"content\": \"This is a NEW post on my blog!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/posts/1",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Post by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/posts/1",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "CREATE User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"jrdrenth\",\r\n    \"password\": \"12345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/users/",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/users/",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ User by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/users/1",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE User by Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"jrdrenth\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/users/1",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE User by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_PROTOCOL}}://{{TECHBLOG_HOST}}:{{APP_PORT}}/api/users/2",
+							"protocol": "{{APP_PROTOCOL}}",
+							"host": [
+								"{{TECHBLOG_HOST}}"
+							],
+							"port": "{{APP_PORT}}",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
