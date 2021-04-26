@@ -93,7 +93,7 @@ router.get('/:id', async (req, res) => {
 // (U)update by id
 router.put('/:id', async (req, res) => {
   try {
-    const result = await User.update(req.body, { where: { id: req.params.id } });
+    const result = await User.update(req.body, { where: { id: req.params.id }, individualHooks: true });
     res.status(200).json(result);
   } catch (err) {
     res.status(500).json(err);
