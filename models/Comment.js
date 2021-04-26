@@ -11,21 +11,21 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    post_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      onDelete: 'CASCADE',
-      references: {
-        model: 'post',
-        key: 'id',
-      },
-    },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       onDelete: 'CASCADE',
       references: {
         model: 'user',
+        key: 'id',
+      },
+    },
+    post_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'post',
         key: 'id',
       },
     },

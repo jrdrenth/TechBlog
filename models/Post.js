@@ -9,7 +9,7 @@ Post.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -17,21 +17,21 @@ Post.init(
       onDelete: 'CASCADE',
       references: {
         model: 'user',
-        key: 'id',
+        key: 'id'
       },
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     content: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+      defaultValue: DataTypes.NOW
     }
   },
   {
@@ -39,7 +39,7 @@ Post.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'post'
   }
 );
 
