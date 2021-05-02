@@ -6,11 +6,6 @@ const withAuth = require('../../utils/auth');
 router.post("/", withAuth, async (req, res) => {
   try {
 
-    //// TEMPORARY ////
-    if (req.session.userId == null) {
-      req.session.userId = 1;
-    }
-
     const requestedPost = { ...req.body, user_id: req.session.userId };
     const newPost = await Post.create(requestedPost);
     res.status(200).json(newPost);
@@ -69,6 +64,10 @@ router.get("/byuserid/:id", async (req, res) => {
 // Update
 router.put("/:id", withAuth, async (req, res) => {
   try {
+    console.log('PostRoutes');
+    console.log('UserId:');
+    console.log(req.session.userId);
+
     const [affectedRowCount] = await Post.update(req.body, {
       where: { id: req.params.id },
     });

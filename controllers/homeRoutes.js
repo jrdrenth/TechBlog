@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
 
 const URL_PREFIX = `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}:${process.env.APP_PORT}`
 
