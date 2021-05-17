@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const hbs = require('express-handlebars');
+const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
@@ -11,8 +11,12 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// // Set up Handlebars.js engine with custom helpers
-// const hbs = exphbs.create({ helpers });
+// Set up Handlebars.js engine with custom helpers, default layout & file extension
+const hbs = exphbs.create({
+  helpers: helpers,
+  defaultLayout: 'main',
+  extname: 'hbs'
+ });
 
 const sess = {
   secret: 'Super secret secret',
@@ -28,12 +32,7 @@ app.use(session(sess));
 
 // Inform Express.js on which template engine to use
 app.set('view engine', 'hbs');
-app.engine('hbs',
-  hbs({
-      extname: 'hbs',
-      defaultLayout: 'main'
-  })
-);
+app.engine('hbs', hbs.engine);
 
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));

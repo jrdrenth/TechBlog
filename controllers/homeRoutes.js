@@ -1,10 +1,16 @@
 const router = require('express').Router();
+const fetch = require("node-fetch");
+const withAuth = require('../utils/auth');
 
 const URL_PREFIX = `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}:${process.env.APP_PORT}`
 
 // gets all posts
 router.get('/', async (req, res) => {
   try {
+
+    console.log('TEST');
+    console.log(`${URL_PREFIX}/api/posts/`);
+
     const postsResponse = await fetch(`${URL_PREFIX}/api/posts/`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
@@ -12,10 +18,16 @@ router.get('/', async (req, res) => {
     const postsText = await postsResponse.text();
     const posts = JSON.parse(postsText);
 
+    console.log('POSTS:')
+    console.log(posts);
+
     res.render('homepage', {
       title: 'The Tech Blog',
-      posts
+      posts,
+      loggedIn: req.session.loggedIn
     });
+
+    console.log('THE END');
 
   } catch (err) {
     res.status(500).json(err);
@@ -23,7 +35,7 @@ router.get('/', async (req, res) => {
 });
 
 // get single post
-router.get('/posts/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
   try {
     // get post by id
     const postId = req.params.id;
@@ -34,9 +46,10 @@ router.get('/posts/:id', async (req, res) => {
     const postText = await postResponse.text();
     const post = JSON.parse(postText);
 
-    res.render('homepage', {
+    res.render('viewPost', {
       title: 'The Tech Blog',
-      post
+      post,
+      loggedIn: req.session.loggedIn
     });
   } catch (err) {
     res.status(500).json(err);
@@ -49,7 +62,10 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('login', {
+    title: 'The Tech Blog'
+  });
+
 });
 
 router.get('/signup', (req, res) => {
@@ -58,7 +74,9 @@ router.get('/signup', (req, res) => {
     return;
   }
 
-  res.render('signup');
+  res.render('signup', {
+    title: 'The Tech Blog'
+  });
 });
 
 

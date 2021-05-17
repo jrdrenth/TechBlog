@@ -1,11 +1,10 @@
-const router = require("express").Router();
-const { Post } = require("../../models/");
+const router = require('express').Router();
+const { Comment, Post, User } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
 // Create
-router.post("/", withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
-
     const requestedPost = { ...req.body, user_id: req.session.userId };
     const newPost = await Post.create(requestedPost);
     res.status(200).json(newPost);
@@ -16,9 +15,29 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 // Read all
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const posts = await Post.findAll();
+
+    console.log('API Read All Posts');
+
+    const posts = await Post.findAll({
+      attributes: { exclude: ['user_id'] },
+      include: [
+        { 
+          model: User,
+          attributes: ['username']
+        },
+        {
+          model: Comment,
+          attributes: ['content', 'date_created'],
+          include: [{
+            model: User,
+            attributes: ['username']
+          }]
+        }
+      ],
+      order: [['id', 'desc']],
+    });
     res.status(200).json(posts);
   } catch (err) {
     res.status(500).json(err);
@@ -26,9 +45,26 @@ router.get("/", async (req, res) => {
 });
 
 // Read by id
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    const post = await Post.findByPk(req.params.id);
+    const post = await Post.findByPk(req.params.id, {
+      attributes: { exclude: ['user_id'] },
+      include: [
+        { 
+          model: User,
+          attributes: ['username']
+        },
+        {
+          model: Comment,
+          attributes: ['content', 'date_created'],
+          include: [{
+            model: User,
+            attributes: ['username']
+          }]
+        }
+      ],
+      order: [['id', 'desc']],
+    });
 
     if (post != null) {
       res.status(200).json(post);
@@ -43,11 +79,26 @@ router.get("/:id", async (req, res) => {
 });
 
 // Read by user_id
-router.get("/byuserid/:id", async (req, res) => {
+router.get('/byuserid/:id', async (req, res) => {
   try {
     const posts = await Post.findAll({
       where: { user_id: req.params.id },
-      order: [["id", "asc"]],
+      attributes: { exclude: ['user_id'] },
+      include: [
+        { 
+          model: User,
+          attributes: ['username']
+        },
+        {
+          model: Comment,
+          attributes: ['content', 'date_created'],
+          include: [{
+            model: User,
+            attributes: ['username']
+          }]
+        }
+      ],
+      order: [['id', 'desc']],
     });
 
     if (posts != null) {
@@ -62,7 +113,7 @@ router.get("/byuserid/:id", async (req, res) => {
 });
 
 // Update
-router.put("/:id", withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     console.log('PostRoutes');
     console.log('UserId:');
@@ -83,7 +134,7 @@ router.put("/:id", withAuth, async (req, res) => {
 });
 
 // Delete
-router.delete("/:id", withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const isDeleted = await Post.destroy({ where: { id: req.params.id } });
 

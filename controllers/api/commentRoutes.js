@@ -7,9 +7,9 @@ router.post("/", withAuth, async (req, res) => {
   try {
 
     //// TEMPORARY ////
-    if (req.session.userId == null) {
-      req.session.userId = 1;
-    }
+    // if (req.session.userId == null) {
+    //   req.session.userId = 1;
+    // }
 
     const requestedComment = { ...req.body, user_id: req.session.userId };
     const newComment = await Comment.create(requestedComment);
