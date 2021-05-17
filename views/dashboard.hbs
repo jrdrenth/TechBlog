@@ -1,13 +1,22 @@
 <div>
-  <div class="posts list-group">
-    {{#each postsByUser}}
-    <a class="list-item flex-row justify-space-between" href="/dashboard/updatepost/{{id}}">
-      <span>{{title}}</span>
-      <span>{{format_date date_created}}</span>
-    </a>
-    {{/each}}
-  </div>
+  {{#each postsByUser}}
+  <article class="card">
+    <div class="card-header flex-row justify-space-between">
+      <h2>
+        <a href="/dashboard/updatepost/{{id}}">{{title}}</a>
+      </h2>
+      <div>
+        Posted by {{user.username}} on {{format_date date_created}}
+      </div>
+    </div>
+    <div class="card-body">
+      {{content}}
+    </div>
+  </article>
+  {{/each}}
+
   <footer class="flex-row justify-center">
-    <a href="/dashboard/newpost"><i class="fas fa-plus"></i> New Post</a>
+    <button type="button" id="new-btn" class="btn"><a href="/dashboard/newpost"><i class="fas fa-plus"></i> New
+        Post</a></button>
   </footer>
 </div>
