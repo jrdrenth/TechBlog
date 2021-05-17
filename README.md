@@ -30,10 +30,10 @@ A blog site to publish blog posts and comments.
 View all posts and add comments on the homepage.  Add new posts and update previous ones on the dashboard.  The following images show the web application's appearance.
 
 ![Home](./assets/01_TechBlog_Home.png)
-![NewComment](./assets/01_TechBlog_NewComment.png)
-![Dashboard](./assets/01_TechBlog_Dashboard.png)
-![NewPost](./assets/01_TechBlog_NewPost.png)
-![UpdatePost](./assets/01_TechBlog_UpdatePost.png)
+![NewComment](./assets/02_TechBlog_NewComment.png)
+![Dashboard](./assets/03_TechBlog_Dashboard.png)
+![NewPost](./assets/04_TechBlog_NewPost.png)
+![UpdatePost](./assets/05_TechBlog_UpdatePost.png)
 
 ## License:
 
