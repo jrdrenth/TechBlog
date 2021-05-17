@@ -1,0 +1,13 @@
+<div>
+  <div class="posts list-group">
+    {{#each postsByUser}}
+    <a class="list-item flex-row justify-space-between" href="/dashboard/updatepost/{{id}}">
+      <span>{{title}}</span>
+      <span>{{format_date date_created}}</span>
+    </a>
+    {{/each}}
+  </div>
+  <footer class="flex-row justify-center">
+    <a href="/dashboard/newpost"><i class="fas fa-plus"></i> New Post</a>
+  </footer>
+</div>

@@ -1,0 +1,17 @@
+<nav>
+  <ul class="flex-row">
+    <li><a href="/">Home</a></li>
+    <li><a href="/dashboard">Dashboard</a></li>
+    {{#if loggedIn}}
+    <li><a href="#" id="logout">Logout</a></li>
+    {{else}}
+    <li><a href="/login">Login</a></li>
+    {{/if}}
+  </ul>
+
+  <div>
+    <h1>{{title}}</h1>
+  </div>
+</nav>
+
+<script src="/js/logout.js"></script>

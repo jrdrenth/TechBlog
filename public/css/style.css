@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+nav {
+  padding: 1rem;
+  /* border: 1px solid red; */
+  background-color: #333;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav li {
+  margin-right: 4rem;
+  font-size: 1.7rem;
+}
+
+nav a {
+  color: bisque;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: bisque;
+}
+
+nav div {
+  background-color: bisque;
+  border-radius: 10px;
+  padding: 0.1rem 1rem;
+  box-shadow: 7px 7px lightgray;
+  /* width: fit-content; */
+  width: 20rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
